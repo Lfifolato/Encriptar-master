@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Encriptar.Models.crip>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista</h2>
+
+
+<a class="btn btn-primary btn-icon-split" href="~/Crip/Create">
+    <span class="icon text-white">
+        <i class="fas fa-plus-circle"></i>
+    </span>
+    <span class="text text-white">Adicionar</span>
+</a>
+
+<table class="table" style="margin-top:15px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Texto)
+        </th>
+        <th>
+            Ação
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Texto)
+    </td>
+    <td>      
+        @Html.ActionLink("Decriptar", "Details", new { id = item.Id })     
+    </td>
+</tr>
+}
+
+</table>
